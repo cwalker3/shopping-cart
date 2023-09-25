@@ -1,1 +1,3 @@
-export default function ErrorPage() {}
+export default function ErrorPage() {
+  return "error";
+}

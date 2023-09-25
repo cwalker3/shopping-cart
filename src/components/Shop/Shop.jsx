@@ -1,1 +1,3 @@
-export default function Shop() {}
+export default function Shop() {
+  return "shop";
+}
