@@ -2,11 +2,13 @@ import styles from "./Shop.module.scss";
 import { useEffect, useState } from "react";
 import { preloadImages } from "../../utils/utils";
 import Product from "../Product/Product";
+import { useOutletContext } from "react-router-dom";
 
 export default function Shop() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [addItemToCart] = useOutletContext();
 
   useEffect(() => {
     async function fetchProducts() {
@@ -37,7 +39,11 @@ export default function Shop() {
       {loading && <p>Loading...</p>}
       {products.length > 0 &&
         products.map((product) => (
-          <Product key={product.id} product={product} />
+          <Product
+            key={product.id}
+            product={product}
+            addItemToCart={addItemToCart}
+          />
         ))}
     </div>
   );

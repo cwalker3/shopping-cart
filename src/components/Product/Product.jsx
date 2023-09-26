@@ -2,7 +2,7 @@ import styles from "./Product.module.scss";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-export default function Product({ product }) {
+export default function Product({ product, addItemToCart }) {
   const [amount, setAmount] = useState(1);
 
   function increment() {
@@ -15,18 +15,26 @@ export default function Product({ product }) {
     }
   }
 
+  function updateAmount(e) {
+    setAmount(+e.target.value);
+  }
+
   function addToCart() {
-    console.log(amount);
+    addItemToCart(product, amount);
   }
 
   return (
     <div className={styles.product}>
-      <img src={product.image} alt={product.title} />
-      <div>{product.title}</div>
-      <div>Price: {product.price}</div>
-      <div className="amountInput">
+      <div className={styles.imgContainer}>
+        <img src={product.image} alt={product.title} />
+      </div>
+      <div className={styles.titleContainer}>
+        <p>{product.title}</p>
+      </div>
+      <div>Price: ${product.price}</div>
+      <div className={styles.amountInput}>
         <button onClick={decrement}>-</button>
-        <input type="text" value={amount} />
+        <input type="text" value={amount} onChange={updateAmount} />
         <button onClick={increment}>+</button>
       </div>
       <button onClick={addToCart}>Add to Cart</button>
@@ -41,4 +49,6 @@ Product.propTypes = {
     description: PropTypes.string,
     image: PropTypes.string,
   }).isRequired,
+
+  addItemToCart: PropTypes.func,
 };
