@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <>
-      <Nav />
+      <Nav cart={cart} />
       <Outlet context={[addItemToCart]} />
     </>
   );

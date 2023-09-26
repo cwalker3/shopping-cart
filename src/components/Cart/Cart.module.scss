@@ -1,0 +1,16 @@
+.cart {
+  .navView {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    img {
+      max-height: 30px;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
