@@ -4,6 +4,8 @@
   justify-content: space-around;
   align-items: center;
   padding: 8px 0;
+  position: relative;
+  height: 50px;
 
   .navLinks {
     display: flex;
@@ -15,8 +17,5 @@
       font-weight: bold;
       font-size: 1.2rem;
     }
-  }
-
-  .cart {
   }
 }

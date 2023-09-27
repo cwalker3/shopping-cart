@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Cart from "../Cart/Cart";
 import PropTypes from "prop-types";
 
-export default function Nav({ cart }) {
+export default function Nav({ cart, setCart }) {
   return (
     <div className={styles.nav}>
       <div className={styles.navLinks}>
@@ -11,7 +11,7 @@ export default function Nav({ cart }) {
         <Link to="shop">Shop</Link>
       </div>
       <div className={styles.cart}>
-        <Cart cart={cart} />
+        <Cart cart={cart} setCart={setCart} />
       </div>
     </div>
   );

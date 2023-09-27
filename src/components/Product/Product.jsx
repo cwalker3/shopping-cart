@@ -1,26 +1,27 @@
 import styles from "./Product.module.scss";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import QuantityInput from "../QuantityInput/QuantityInput";
 
 export default function Product({ product, addItemToCart }) {
-  const [amount, setAmount] = useState(1);
+  const [quantity, setQuantity] = useState(1);
 
   function increment() {
-    setAmount(amount + 1);
+    setQuantity(quantity + 1);
   }
 
   function decrement() {
-    if (amount > 0) {
-      setAmount(amount - 1);
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
     }
   }
 
-  function updateAmount(e) {
-    setAmount(+e.target.value);
+  function updateQuantity(e) {
+    setQuantity(+e.target.value);
   }
 
   function addToCart() {
-    addItemToCart(product, amount);
+    addItemToCart(product, quantity);
   }
 
   return (
@@ -32,11 +33,12 @@ export default function Product({ product, addItemToCart }) {
         <p>{product.title}</p>
       </div>
       <div>Price: ${product.price}</div>
-      <div className={styles.amountInput}>
-        <button onClick={decrement}>-</button>
-        <input type="text" value={amount} onChange={updateAmount} />
-        <button onClick={increment}>+</button>
-      </div>
+      <QuantityInput
+        value={quantity}
+        increment={increment}
+        decrement={decrement}
+        onChange={updateQuantity}
+      />
       <button onClick={addToCart}>Add to Cart</button>
     </div>
   );

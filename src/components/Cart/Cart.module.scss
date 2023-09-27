@@ -1,9 +1,11 @@
 .cart {
+  cursor: pointer;
+
   .navView {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 8px;
 
     img {
       max-height: 30px;
@@ -11,6 +13,32 @@
 
     p {
       font-size: 1.2rem;
+      margin: 0;
+    }
+  }
+
+  .cartOpen {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: gray;
+    height: calc(100vh - 50px);
+    width: 320px;
+    z-index: 99;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding-bottom: 64px;
+    align-items: center;
+
+    .cartItems {
+      display: flex;
+      flex-direction: column;
+    }
+
+    button {
+      width: 80%;
     }
   }
 }

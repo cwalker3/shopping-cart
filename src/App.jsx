@@ -9,9 +9,6 @@ export default function App() {
     const existingItem = cart.find((cartItem) => cartItem.id === item.id);
     if (existingItem) {
       const newQuantity = existingItem.quantity + quantity;
-      console.log(existingItem);
-      console.log(newQuantity);
-
       setCart(
         cart.map((cartItem) =>
           cartItem.id === item.id
@@ -26,7 +23,7 @@ export default function App() {
 
   return (
     <>
-      <Nav cart={cart} />
+      <Nav cart={cart} setCart={setCart} />
       <Outlet context={[addItemToCart]} />
     </>
   );
