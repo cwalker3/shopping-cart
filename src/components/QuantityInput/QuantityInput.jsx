@@ -9,7 +9,12 @@ export default function QuantityInput({
   return (
     <div className={styles.quantityInput}>
       <button onClick={decrement}>-</button>
-      <input type="text" value={value} onChange={onChange} />
+      <input
+        aria-label="quantity"
+        type="text"
+        value={value}
+        onChange={onChange}
+      />
       <button onClick={increment}>+</button>
     </div>
   );

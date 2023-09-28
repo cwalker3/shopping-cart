@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
+import App from "./components/App/App";
 import Home from "./components/Home/Home";
 import Shop from "./components/Shop/Shop";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 
-const Router = () => {
+const Router = ({ history }) => {
   const router = createBrowserRouter([
     {
       path: "/",
@@ -23,7 +23,7 @@ const Router = () => {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} history={history} />;
 };
 
 export default Router;

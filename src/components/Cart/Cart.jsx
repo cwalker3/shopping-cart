@@ -33,7 +33,7 @@ export default function Cart({ cart, setCart }) {
     <div className={styles.cart}>
       <div onClick={toggleOpen} className={styles.navView}>
         <img src="cart.svg" alt="Cart" onClick={toggleOpen} />
-        <p>{cartQuantity()}</p>
+        <span aria-label="Cart Quantity">{cartQuantity()}</span>
       </div>
       {open && (
         <div className={styles.cartOpen}>
